@@ -1,0 +1,220 @@
+.dark-mode{
+    /* background:black; */
+    --mode-elements: hsl(209, 23%, 22%);
+    --mode-text:hsl(0, 0%, 100%);
+    --mode-background: hsl(207, 26%, 17%);
+    --mode-imput: hsl(0, 0%, 52%);
+     --Toggle: linear-gradient(to right,hsl(210, 78%, 56%),hsl(146, 68%, 55%));
+     --bg-background: url(../img/moon.svg);
+     --bg-theme:hsl(230, 17%, 14%);
+   }
+   .light-mode{
+     --mode-elements: hsl(0, 0%, 100%);
+     --mode-text:hsl(200, 15%, 8%);
+     --mode-background:hsl(0, 0%, 98%);
+     --mode-imput:hsl(0, 0%, 52%);
+     --Toggle: hsl(230, 22%, 74%);
+     --bg-background: url(../img/sun.svg);
+     --bg-theme:hsl(0, 0%, 100%);
+   }
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*.container{
+    height: 100vh;
+  }*/
+  .l-container{
+      width: 100%;
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .sec-toggle {
+    display: flex;
+    align-items: center;
+  }
+  input[type="checkbox"]{
+    -webkit-appearance: none;
+    width: 51px;
+    height: 25px;
+    border-radius: 50px;
+    position: relative;
+    /*top: 5px; */
+    left: 5px;
+    cursor: pointer;
+    outline: none;
+    background: var(--Toggle);
+}
+
+input[type="checkbox"]::before{
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--bg-background) no-repeat;
+    background-size: cover;
+    background-color: var(--bg-theme);
+    transform: scale(0.8);
+    transition: all 0.3s ease-in;
+}
+
+input[type="checkbox"]:checked::before{
+   left: 50%;
+}
+.cabezera{
+    background: var(--mode-elements) ;
+    color: var(--mode-text);
+    height: 80px;
+}
+.container{
+   min-height: 100vh;
+   background: var(--mode-background);
+}
+.cab-content{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+.container-country{
+    padding: 2em;
+    background: var(--mode-background);
+    min-height: 100vh;
+}
+.country-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2em;
+}
+.country-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+   /* grid-template-columns: repeat(4,1fr); */
+    grid-template-rows: auto;
+    column-gap: 2em;
+    row-gap: 2em;
+}
+.country-card{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--mode-elements);
+}
+.img-card{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card-description{
+    padding: 1em;
+    padding-bottom: 2em;
+}
+.card-title,.card-txt{
+    color: var(--mode-text);
+}
+.card-title{
+    line-height: 2;
+    text-decoration: none;
+}
+.card-txt{
+    line-height: 1.5;
+}
+
+/********************/
+input[type=text]{
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid var(--mode-elements);
+    background: var(--mode-elements);
+    color: var(--mode-text);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+select{
+    padding: 1em 2em;
+    display: inline-block;
+    border: 1px solid var(--mode-elements);
+    background: var(--mode-elements);
+    color: var(--mode-text);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+/****************************/
+.container-detail{
+    padding: 2em;
+    background: var(--mode-background);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.btn-back{
+    background: var(--mode-elements);
+    color: var(--mode-text);
+    border: none;
+    margin-bottom: 2em;
+    padding: .5em 1em;
+    border-radius: .5em;
+    text-decoration: none;
+}
+.country-detail{
+     display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    column-gap: 2em; 
+}
+.detail-img{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+    height: auto;
+}
+.country-info1{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+.country-info2{
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+.container-detail p{
+    line-height: 1.7;
+    color: var(--mode-text);
+}
+.container-detail span{
+    font-weight: bold;
+}
+.container-detail h2{
+    line-height: 2;
+    color: var(--mode-text);
+}
+
+@media(max-width:800px){
+    .country-detail{
+        width: 100%;
+       grid-template-columns: 100%;
+       grid-template-rows: auto;
+       column-gap: 0;
+       row-gap: 2em; 
+   }
+   .detail-img{
+       grid-column: 1/2;
+       grid-row: 1/2;
+   }
+   .country-info1{
+       grid-column: 1/2;
+       grid-row: 2/3;
+   }
+   .country-info2{
+    grid-column: 1/2;
+       grid-row: 3/4;
+   }
+}
